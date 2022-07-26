@@ -5,17 +5,21 @@
             <a class="nav-link " aria-current="page" href="#">صفحه نخست</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#">ورود</a>
-        </li>
+
         {% if request.user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="#">خروج</a>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">خروج</a>
+            </li>
+
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">ورود</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ثبت نام</a>
             </li>
         {% endif %}
-        <li class="nav-item">
-            <a class="nav-link" href="#">ثبت نام</a>
-        </li>
+
     </ul>
 
 </nav>

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'shop.apps.ShopConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,19 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
+
+
+#cloud storage for Media files
+#Arvan storage settings
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID='99d7d974-7d6a-4d8d-8470-4231e5c0d261'
+AWS_SECRET_ACCESS_KEY='e43383b2235ff00d6ab2d182892b7899e77d0e578b26b4f5156c20dd18077664'
+AWS_S3_ENDPOINT_URL='https://s3.ir-thr-at1.arvanstorage.com'
+AWS_STORAGE_BUCKET_NAME='django-store'
+AWS_SERVICE_NAME='s3'
+AWS_S3_FILE_OVERWRITE=False
+

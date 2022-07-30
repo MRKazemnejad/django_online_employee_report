@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.views import View
 from .models import Product,Category
 
@@ -9,6 +9,13 @@ class UserHomeView(View):
          return render(request,'shop/index.html',{'products':product})
 
 
-class UserWorkshopView(View):
+class ProductView(View):
     def get(self,request):
         return render(request,'shop/wokshop.html')
+
+
+class ProductDetailView(View):
+    def get(self,request,slug):
+        product=get_object_or_404(Product,slug=slug)
+        return render(request,'shop/product_details.html',{'product':product})
+

@@ -2,3 +2,7 @@
   font-family: 'B Yekan';
   src:url('/static/fonts/Yekan.woff')format('woff');
 }
+
+a:link{
+  text-decoration: none;
+}

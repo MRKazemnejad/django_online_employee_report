@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container">
+
+        <div class="right_side">
+            {% for img in product %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ img.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="center">
+
+        </div>
+        <div class="left_side">
+
+        </div>
+        <div class="footer">
+
+        </div>
+
+    </div>
+
+{% endblock %}

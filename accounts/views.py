@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from .forms import UserLoginForm
+from .forms import UserLoginForm,UserRegistrationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+import random
 
 
 class UserLoginView(View):
@@ -35,4 +36,9 @@ class UserLogoutView(LoginRequiredMixin,View):
 
 
 class UserRegisterView(View):
-    pass
+    class_form=UserRegistrationForm
+    def get(self,request):
+        return render(request,'accounts/registration.html',{'form':self.class_form})
+
+    def post(self):
+        pass

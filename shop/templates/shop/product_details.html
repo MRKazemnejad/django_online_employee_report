@@ -5,17 +5,17 @@
     <div class="container">
 
         <div class="right_side">
-            {% for img in product %}
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ img.image.url }}" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text"></p>
-                    </div>
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text"></p>
                 </div>
-            {% endfor %}
+            </div>
+
         </div>
         <div class="center">
-
+            <p>{{ product.name }}</p>
         </div>
         <div class="left_side">
 

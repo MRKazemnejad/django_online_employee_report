@@ -132,6 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR/'media'
 
+#Costom User
+AUTH_USER_MODEL = 'accounts.User'
+
 
 #cloud storage for Media files
 #Arvan storage settings

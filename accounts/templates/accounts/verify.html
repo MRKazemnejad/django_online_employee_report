@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="mx-1 mx-md-4"v style="direction: ltr;">
+        <form action="" method="post" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success" value="Verify">
+
+        </form>
+    </div>
+
+{% endblock %}

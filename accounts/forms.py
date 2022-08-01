@@ -9,11 +9,23 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegistrationForm(forms.ModelForm):
-    password1=forms.CharField(label='Password',widget=forms.PasswordInput)
-    password2=forms.CharField(label='Password conformation',widget=forms.PasswordInput)
+    password1=forms.CharField(label='',widget=forms.PasswordInput(attrs={'class':'form-control form-control-lg','placeholder':'Password'}))
+    password2=forms.CharField(label='',widget=forms.PasswordInput(attrs={'class':'form-control form-control-lg','placeholder':'Password conformation'}))
     class Meta:
         model=User
         fields=('email','phone_number','full_name')
+        labels={
+            'phone_number':'',
+            'email':'',
+            'full_name':'',
+
+        }
+
+        widgets = {
+            'phone_number': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Phone Number'}),
+            'email': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Email'}),
+            'full_name': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Full Name'}),
+        }
 
 
     def clean_email(self):
@@ -37,5 +49,11 @@ class UserRegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class UserVerificationForm(forms.Form):
+    code=forms.IntegerField(label='',widget=forms.TextInput(attrs={'placeholder':'Verification Code'}))
+
+    def __str__(self):
+        return self.code
 
 

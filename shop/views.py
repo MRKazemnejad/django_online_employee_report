@@ -19,3 +19,10 @@ class ProductDetailView(View):
         product=get_object_or_404(Product,slug=slug)
         return render(request,'shop/product_details.html',{'product':product})
 
+
+class CartView(View):
+    def get(self,request):
+        return render(request,'shop/cart.html')
+    def post(self,request):
+        pass
+

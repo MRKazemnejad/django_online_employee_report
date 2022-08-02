@@ -1,0 +1,26 @@
+.contianer{
+  position: relative;
+  width:90%;
+  height:200px;
+  /*border: 3px solid #73AD21;*/
+  margin: auto;
+}
+
+.right_position{
+  position:absolute;
+  /*border: 3px solid #0539f5;*/
+
+
+}
+
+.center_position{
+  position:absolute;
+  /*border: 3px solid #f5053d;*/
+  left:50%;
+}
+
+.left_position{
+  position:absolute;
+  /*border: 3px solid #05f5a1;*/
+  right:95%;
+}

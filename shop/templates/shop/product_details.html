@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block css_code %}
+    <link href="{% static 'shop/css/product_detail.css' %}" rel="stylesheet">
+{% endblock %}
 
 
 {% block content %}
-    <div class="container">
+    <div class="contianer">
 
-        <div class="right_side">
-
+        <div class="right_position">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
                 <div class="card-body">
@@ -14,16 +17,32 @@
             </div>
 
         </div>
-        <div class="center">
-            <p>{{ product.name }}</p>
-        </div>
-        <div class="left_side">
+
+        <div class="center_position">
+            <h2>
+                {{ product.name }}
+            </h2>
+            <br>
+            <p class="card-text"><small class="text-muted">Last updated {{ product.updated|timesince }} mins ago</small>
+            </p>
+            <br>
+            <form action="{% url 'shop:add_cart' product.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+                {% if product.available %}
+                    <input type="submit" class="btn btn-success btn-lg" value="اضافه کردن به سبد خرید">
+                {% else %}
+                    <input type="submit" class="btn btn-warning disabled" value="ناموجود">
+                {% endif %}
+            </form>
 
         </div>
-        <div class="footer">
 
+        <div class="left_position">
+            <p>
+                {{ product.description }}
+            </p>
         </div>
-
     </div>
 
 {% endblock %}

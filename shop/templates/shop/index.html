@@ -11,7 +11,7 @@
                     <img class="card-img-top " src="{{ product.image.url }}" alt="{{ product.slug}}">
                     <div class="card-body">
                         <a href="{% url 'shop:details' product.slug %}" > <h5 class="card-title">{{ product.name}}</h5></a>
-                        <p class="card-text"><small class="text-muted">Last updated {{ product.updated|timeuntil:product.created }} mins ago</small></p>
+                        <p class="card-text"><small class="text-muted">Last updated {{ product.updated|timesince }} mins ago</small></p>
                     </div>
                 </div>
             </div>

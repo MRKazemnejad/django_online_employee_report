@@ -27,7 +27,9 @@ class CartView(View):
 
     def get(self,request):
         cart=Cart(request)
-        return render(request,'shop/cart.html',{'cart':cart})
+        total_price=cart.get_total_price()
+        return render(request,'shop/cart.html',{'cart':cart,'total_price':total_price})
+
     def post(self,request):
         pass
 
@@ -43,3 +45,9 @@ class CartAddView(View):
         return redirect('shop:cart')
 
 
+class CartRemoveView(View):
+    def get(self,request,product_id):
+        cart=Cart(request)
+        product=get_object_or_404(Product,id=int(product_id))
+        cart.remove(product)
+        return redirect('shop:cart')

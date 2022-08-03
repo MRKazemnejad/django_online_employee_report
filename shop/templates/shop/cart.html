@@ -13,16 +13,23 @@
         </thead>
         <tbody>
 
-            {% for item in cart %}
-                 <tr>
+        {% for item in cart %}
+            <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ item.product }}</td>
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.total_price }}</td>
-                </tr>
-            {% endfor %}
+                <td><a href="{% url 'shop:remove_cart' item.id %}" style="text-decoration: none;">حذف</a></td>
 
+            </tr>
+
+        {% endfor %}
+        <tr>
+            <td colspan="4" style="background-color: darkkhaki;">پرداخت نهایی</td>
+            <td style="background-color: chocolate;">{{ total_price }}</td>
+        </tr>
         </tbody>
     </table>
+    <input type="button" class="btn btn-success" value="پرداخت">
 {% endblock %}

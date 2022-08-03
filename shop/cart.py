@@ -17,12 +17,26 @@ class Cart:
     def add(self,product,quantity):
         product_id=str(product.id)
         if  product_id not in self.cart:
-            self.cart[product_id]={'product':product.name,'quantity':0,'price':product.price,'total_price':0}
-        self.cart[product_id]['quantity'] +=quantity
-        self.cart[product_id]['total_price'] += str(int(self.cart[product_id]['quantity']) * int(self.cart[product_id]['price']))
+            self.cart[product_id]={'id':str(product.id),'product':product.name,'quantity':'0','price':str(product.price),'total_price':'0'}
+        quantity_value=int( self.cart[product_id]['quantity'])
+        print(quantity_value)
+        quantity_value +=quantity
+        print(quantity_value)
+
+        self.cart[product_id]['quantity'] =str(quantity_value)
+        self.cart[product_id]['total_price'] = str(int(self.cart[product_id]['quantity']) * int(self.cart[product_id]['price']))
         self.save()
     def get_total_price(self):
-       return sum(int(item['price'] * item['quantity']) for item in self.cart.values())
+       return sum(int(item['price']) * int(item['quantity']) for item in self.cart.values())
+
+    def remove(self,product):
+        product_id=str(product.id)
+        if product_id in self.cart:
+            del self.cart[product_id]
+            self.save()
+
+
+
 
 
     def save(self):

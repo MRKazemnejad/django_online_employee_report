@@ -5,7 +5,7 @@
             <a class="nav-link " aria-current="page" href="{% url 'shop:home' %}">صفحه نخست</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'shop:cart' %}">سبد خرید</a>
+            <a class="nav-link" href="{% url 'shop:cart' %}">  سبد خرید{{ cart_num|length }}  </a>
         </li>
 
         {% if request.user.is_authenticated %}

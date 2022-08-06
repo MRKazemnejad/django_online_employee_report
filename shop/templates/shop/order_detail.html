@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">شماره سفارش</th>
+            <th scope="col">نام مشتری</th>
+            <th scope="col">وضعیت پرداخت</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ order.user }}</td>
+                <td>{{ order.paid }}</td>
+            </tr>
+
+
+        <tr>
+            <td colspan="4" style="background-color: darkkhaki;">پرداخت نهایی</td>
+            <td style="background-color: chocolate;">{{ total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="button" class="btn btn-success" value="پرداخت">
+
+{% endblock %}

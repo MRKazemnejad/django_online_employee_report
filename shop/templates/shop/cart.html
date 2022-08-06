@@ -31,5 +31,6 @@
         </tr>
         </tbody>
     </table>
-    <input type="button" class="btn btn-success" value="پرداخت">
+{#    <input type="button" class="btn btn-success" href="{% url 'shop:order_create' %}" value="پرداخت">#}
+    <a class="btn btn-success" href="{% url 'shop:order_create' %}">پرداخت</a>
 {% endblock %}

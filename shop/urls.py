@@ -13,4 +13,6 @@ urlpatterns=[
     path('remove_cart/<str:product_id>/',views.CartRemoveView.as_view(),name='remove_cart'),
     path('order_create/',views.OrderCreateView.as_view(),name='order_create'),
     path('order_detail/<int:order_id>/',views.OrderDetailView.as_view(),name='order_detail'),
+    path('apply_coupon/<int:order_id>/',views.CouponPriceView.as_view(),name='apply_coupon'),
+    path('final_price/<int:order_id>/',views.FinalPriceView.as_view(),name='final_price'),
 ]

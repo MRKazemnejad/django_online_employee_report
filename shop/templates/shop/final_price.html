@@ -29,16 +29,6 @@
 
         </tbody>
     </table>
-    <input type="button" class="btn btn-success" value="پرداخت"><br>
+    <input type="button" class="btn btn-success" value="پرداخت">
 
-    <form action="{% url 'shop:apply_coupon' order.id %}" method="post">
-
-        {% csrf_token %}
-        <br>
-
-        {{ form.as_p }}
-
-    <input class="btn btn-success" type="submit" value="کد تخفیف">
-
-    </form>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product,Category,Order,OrderItem
+from .models import Product,Category,Order,OrderItem,Coupon
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -23,7 +23,7 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderItemInline,)
     list_display = ('user','updated','paid',)
 
-
+admin.site.register(Coupon)
 
 
 

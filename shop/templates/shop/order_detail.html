@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
    <table class="table">
@@ -15,14 +16,16 @@
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ order.user }}</td>
-                <td>{{ order.paid }}</td>
+                {% if order.paid %}
+                 <td><img src="{% static 'shop/img/tick1.jpg' %}"></td>
+                {% else %}
+                   <td><img src="{% static 'shop/img/fault tick1.png' %}"></td>
+                {% endif %}
+
             </tr>
 
 
-        <tr>
-            <td colspan="4" style="background-color: darkkhaki;">پرداخت نهایی</td>
-            <td style="background-color: chocolate;">{{ total_price }}</td>
-        </tr>
+
         </tbody>
     </table>
     <input type="button" class="btn btn-success" value="پرداخت">
